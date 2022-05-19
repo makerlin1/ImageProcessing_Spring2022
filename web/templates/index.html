@@ -1,0 +1,331 @@
+{% extends 'base.html' %}
+
+<!-- 标题 -->
+{% block subtitle %}Super Resolution{% endblock %}
+
+<!-- 内容 -->
+{% block app_content %}
+<section class="section">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="#" class="text-muted">Home</a></li>
+		<li class="breadcrumb-item active text-" aria-current="page">Dashboard</li>
+	</ol>
+
+	<div class="row">
+		<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-6">
+							<div class="dash1">
+								<h4 class="text-dark" id="option1">--</h4>
+								<small class="text-muted ">访问PV</small>
+							</div>
+						</div>
+						<div class="col-6">
+							<div id="chart1" class="overflow-hidden"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-6">
+							<div class="dash1">
+								<h4 class="text-dark" id="option2">--</h4>
+								<small class="text-muted">已完成转换</small>
+							</div>
+						</div>
+						<div class="col-6">
+							<div id="chart2" class="overflow-hidden"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-6">
+							<div class="dash1">
+								<h4 class="text-dark" id="option3">--</h4>
+								<small class="text-muted">正在转换</small>
+							</div>
+						</div>
+						<div class="col-6">
+							<div id="chart3" class="overflow-hidden"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-xl-3 col-md-6 col-sm-6 col-12">
+			<div class="card">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-6">
+							<div class="dash1">
+								<h4 class="text-dark" id="option4">--</h4>
+								<small class="text-muted">转换速率</small>
+							</div>
+						</div>
+						<div class="col-6">
+							<div id="chart4" class="overflow-hidden"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 文件上传 -->
+	<div class="row">
+		<div class="col-lg-12 col-xl-12 col-md-12 col-12" id="upload">
+			<div class="card">
+				<div class="card-header">
+					<div class="float-right">
+						<a data-collapse="#mycard-collapse" class="btn btn-icon"><i class="ion ion-minus"></i></a>
+					</div>
+					<h4>File Upload</h4>
+				</div>
+				<div class="card-body" id="mycard-collapse">
+					<div class="row">
+						<div class="col-lg-12 col-xl-12 col-md-12 col-12 col-sm-12">
+							<form method="post" action="/api/upload" enctype="multipart/form-data">
+								<div class="form-group files mb-lg-0">
+									<input type="file" id="file" class="form-control1" multiple="">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-xl-4 col-md-6 col-12" id="input" style="display: none;">
+			<div class="card">
+				<div class="card-header">
+					<h4>Input</h4>
+				</div>
+				<div class="card-body">
+					<img src="/static/img/loader.svg" class="col-12"/>
+				</div>
+				<div class="card-footer" style="text-align:center">
+					<a href="#" class="btn btn-primary m-b-5 m-t-5 disabled">download</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-xl-4 col-md-6 col-12" id="output" style="display: none;">
+			<div class="card">
+				<div class="card-header">
+					<h4>Output</h4>
+				</div>
+				<div class="card-body">
+					<img src="/static/img/loader.svg" class="col-12"/>
+				</div>
+				<div class="card-footer" style="text-align:center">
+					<a href="#" class="btn btn-primary m-b-5 m-t-5 disabled">download</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- 团队成员&技术栈 -->
+	<div class="row">
+		<div class="col-lg-6 col-xl-4 col-12">
+			<div class="card">
+				<div class="card-header">
+					<h4>Team members</h4>
+				</div>
+				<div class="card-body" style="height:380px;">
+					<ul class="visitor list-unstyled list-unstyled-border">
+						<li class="media">
+							<img class="mr-3 rounded-circle" width="50" src="https://image.zhihuishu.com/zhs/ablecommons/demo/202204/a29dd8d5a0bb414a9eb9a4b4a75b472e.jpg" alt="avatar">
+							<div class="media-body">
+								<div class="float-right"><small>17-5-2022</small></div>
+								<div class="media-title">闫浩霖</div>
+								<small>算法设计及部署&PPT汇总答辩</small>
+							</div>
+						</li>
+						<li class="media">
+							<img class="mr-3 rounded-circle" width="50" src="https://image.zhihuishu.com/zhs/ablecommons/demo/202204/b64092021c564c659259c83054731550.jpg" alt="avatar">
+							<div class="media-body">
+								<div class="float-right"><small>19-5-2022</small></div>
+								<div class="media-title">刘家旭</div>
+								<small>API接口设计及前后端部署</small>
+							</div>
+						</li>
+						<li class="media">
+							<img class="mr-3 rounded-circle" width="50" src="https://image.zhihuishu.com/zhs/ablecommons/demo/202204/d771281f91ec436981552f841ff0067a.jpg" alt="avatar">
+							<div class="media-body">
+								<div class="float-right"><small>21-5-2022</small></div>
+								<div class="media-title">XXX</div>
+								<small>文献调研&PPT美工</small>
+							</div>
+						</li>
+						<li class="media">
+							<img class="mr-3 rounded-circle" width="50" src="https://image.zhihuishu.com/zhs/ablecommons/demo/202204/63d0da2afc6440b28c455a0b5f83ca12.jpg" alt="avatar">
+							<div class="media-body">
+								<div class="float-right"><small>25-5-2022</small></div>
+								<div class="media-title">XXX</div>
+								<small>资料整理&文档设计</small>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6 col-xl-8 col-12">
+			<div class="card">
+				<div class="card-header">
+					<h4>Technology stack</h4>
+				</div>
+				<div class="card-body"  style="height:380px;">
+					<div class="clearfix">
+						<span class="float-left">PaddleHub</span>
+						<small class="float-right">80%</small>
+					</div>
+					<div class="card-progressbar">
+						<div class="progress h-14" >
+							<div class="progress-bar bg-cyan w-80" role="progressbar" ></div>
+						</div>
+					</div>
+					<div class="clearfix mt-3">
+						<span class="float-left">falsr_c</span>
+						<small class="float-right">70%</small>
+					</div>
+					<div class="card-progressbar">
+						<div class="progress h-14" >
+							<div class="progress-bar bg-primary w-70" role="progressbar"></div>
+						</div>
+					</div>
+					<div class="clearfix mt-3">
+						<span class="float-left">openvino</span>
+						<small class="float-right">30%</small>
+					</div>
+					<div class="card-progressbar">
+						<div class="progress h-14" >
+							<div class="progress-bar bg-orange w-30" role="progressbar"></div>
+						</div>
+					</div>
+					<!-- <div class="clearfix mt-3"> -->
+						<!-- <span class="float-left">C++</span> -->
+						<!-- <small class="float-right">40%</small> -->
+					<!-- </div> -->
+					<!-- <div class="card-progressbar"> -->
+						<!-- <div class="progress h-14" style="height:14px;"> -->
+							<!-- <div class="progress-bar bg-success w-40" role="progressbar"></div> -->
+						<!-- </div> -->
+					<!-- </div> -->
+					<div class="clearfix mt-3">
+						<span class="float-left">Flask</span>
+						<small class="float-right">40%</small>
+					</div>
+					<div class="card-progressbar">
+						<div class="progress h-14">
+							<div class="progress-bar bg-info w-40" role="progressbar"></div>
+						</div>
+					</div>
+					<div class="clearfix mt-3">
+						<span class="float-left">Bootstrap</span>
+						<small class="float-right">60%</small>
+					</div>
+					<div class="card-progressbar">
+						<div class="progress h-14" >
+							<div class="progress-bar bg-danger w-60" role="progressbar"></div>
+						</div>
+					</div>
+					<div class="clearfix mt-3">
+						<span class="float-left">jquery</span>
+						<small class="float-right">50%</small>
+					</div>
+					<div class="card-progressbar">
+						<div class="progress h-14">
+							<div class="progress-bar bg-pink w-50" role="progressbar"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+	
+
+</section>
+<!--Dashboard js-->
+<script src="static/js/dashboard.js"></script>
+<script>
+$(function(){
+	// let api = '/';
+	let api = '/';
+	$('#file').change(function (e) {
+		// 缩小#upload并渐入#input
+		$('#upload').removeClass('col-lg-12');
+		$('#upload').addClass('col-lg-4');
+		$('#upload').removeClass('col-xl-12');
+		$('#upload').addClass('col-xl-4');
+		$('#input').fadeIn('slow');
+		// 上传
+		var files = e.target.files;
+		var formFile = new FormData();
+		formFile.append("file", files[0]); //加入文件对象
+		$.ajax({
+			url: api + "api/upload",
+			data: formFile,
+			type: "post",
+			dataType: "json",
+			cache: false,//上传文件无需缓存
+			processData: false,//用于对data参数进行序列化处理 这里必须false
+			contentType: false, //必须
+			success: function (result) {
+				console.log(result);
+				let filename = result.filename;
+				toastr.success(filename, '上传成功!');
+				// upload（上传成功后，渐入#output）
+				$('#output').fadeIn('slow');
+				// input
+				let inputUrl = api + 'download/input/' + filename;
+				$('#input img').attr('src', inputUrl);
+				$('#input .btn').attr('href', inputUrl);
+				$('#input .btn').removeClass('disabled');
+				// output
+				let outputInterval = setInterval(function(){
+					$.get(api + 'api/query?filename=' + filename, function(data, status){
+						if(data.status){
+							toastr.success(filename, '转换成功!');
+							let outputUrl = api + 'download/output/' + data.filename;
+							$('#output img').attr('src', outputUrl);
+							$('#output .btn').attr('href', outputUrl);
+							$('#output .btn').removeClass('disabled');
+							clearInterval(outputInterval);
+						}
+					})
+				}, 3000);
+			},
+			error: function(result){
+				toastr.error('请联系网站管理员~', '上传失败!');
+			}
+		})
+	});
+
+	function tongji(init=0){
+		$.get(api + 'api/tongji', {'init': init}, function(data, status){
+			$('#option1').text(data.viewer)
+			$('#option2').text(data.task_end)
+			$('#option3').text(data.task_ing)
+			$('#option4').text(data.speed)
+		})
+	}
+	tongji(init=1);
+	setInterval(tongji,3000);
+});
+</script>
+
+{% endblock %}
