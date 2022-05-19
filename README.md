@@ -7,7 +7,7 @@ Image Processing and Computer Vision (Project, 2022, Spring)
 - [x] 调研
 - [ ] 总结调研,制作ppt
 - [x] 开发模型
-- [ ] 部署可视化
+- [x] 可视化部署
 
 ### Papers
 
