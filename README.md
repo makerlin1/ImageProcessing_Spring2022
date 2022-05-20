@@ -1,7 +1,8 @@
 Image Restoration
 ---
 Image Processing and Computer Vision (Project, 2022, Spring)
-### 论文笔记
+### 可视化部署
+![](screenshot/demo.gif)
 
 ### Plan
 - [x] 调研
