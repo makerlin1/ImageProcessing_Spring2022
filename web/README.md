@@ -1,5 +1,5 @@
 # 可视化部署
-![](https://qn-sc0.yuketang.cn/ue_i/20220520/ea52a828-5bf7-4981-9c2e-cdc063057a48.gif)
+![](../screenshot/demo.gif)
 ### 1.使用
 ```shell
 # 环境配置
@@ -7,5 +7,18 @@ pip install -r requirements.txt
 # 启动服务
 python app.py
 ```
-### 2.技术细节
-（待补充）
+### 2.特性
+#### 2.1 Echarts数据可视化
+![](../screenshot/echarts.jpg)
+
+#### 2.2 jQuery + Ajax
+页面数据实时加载&更新
+
+#### 2.3 Bootstrap栅栏特性（页面自适应）
+- 平板端  
+![](../screenshot/lg.jpg)
+- 手机端  
+![](../screenshot/sm.jpg)
+
+#### 2.4 Toastr人性化提示
+![](../screenshot/toastr.jpg)
